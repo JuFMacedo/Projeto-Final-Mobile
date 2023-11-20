@@ -2,11 +2,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import Sobre from "./src/pages/Sobre/sobre";
 //import Login from "./src/pages/Login";
+import Home from "./src/pages/Home";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Sobre />
+      <Home />
       {/* <Login /> */}
       {/* <StatusBar style="auto" /> */}
     </View>
