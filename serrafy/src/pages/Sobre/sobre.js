@@ -117,12 +117,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#2f4f4f",
+    backgroundColor: "#010625",
   },
   section: {
     marginBottom: 20,
     color: "white",
     alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
   },
   sobre: {
     fontSize: 30,
@@ -130,12 +133,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     color: "white",
     marginTop: 50,
+    textAlign: "center",
   },
   dev: {
     fontSize: 30,
     fontWeight: "bold",
     marginBottom: 10,
     color: "white",
+    textAlign: "center",
   },
   sobrenos: {
     fontSize: 16,

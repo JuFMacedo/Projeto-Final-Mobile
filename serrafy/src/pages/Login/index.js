@@ -47,7 +47,12 @@ export default function Login() {
         <View style={styles.viewImage}>
           <Image
             source={require("../../../assets/serrafylogo.png")}
-            style={{ width: 125, height: 125 }}
+            style={{
+              width: 200,
+              height: 200,
+              borderRadius: 50,
+              resizeMode: "cover",
+            }}
           />
         </View>
         <Text style={styles.titulo}>Login</Text>
@@ -87,6 +92,8 @@ export default function Login() {
                 paddingHorizontal: 10,
                 fontSize: 15,
               }}
+              //Vai sumir com a senha quando escrever, transformando a numeração em ** ou em bolinhas.
+              secureTextEntry={true}
             />
           </View>
 
@@ -103,7 +110,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     textAlign: "center",
-    backgroundColor: "#004AAD",
+    backgroundColor: "#010625",
     alignItems: "center",
     width: "100%",
   },
@@ -118,6 +125,7 @@ const styles = StyleSheet.create({
     borderWidth: 10,
     borderRadius: 100,
     backgroundColor: "#FFFDFD",
+    overflow: "hidden",
   },
 
   titulo: {
