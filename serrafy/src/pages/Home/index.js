@@ -49,9 +49,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "space-between",
+    backgroundColor: "#010625",
+    color: "white",
   },
   header: {
-    backgroundColor: "#3498db",
+    backgroundColor: "#010625",
     paddingVertical: 45,
     alignItems: "center",
     marginHorizontal: -130,
@@ -64,6 +66,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    color: "white",
   },
   bottomButtons: {
     flexDirection: "row",
@@ -77,7 +80,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#3498db",
+    backgroundColor: "#f4f4f4",
     paddingVertical: 18,
   },
 });
