@@ -9,13 +9,10 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-//import { useNavigation } from "@react-navigation/native";
 
-export default function Login() {
+export default function Login({ navigation }) {
   const [username, setUsername] = useState("");
   const [senha, setSenha] = useState("");
-
-  //const navigation = useNavigation();
 
   const mockUsername = "admin";
   const mockSenha = "123";
@@ -29,7 +26,7 @@ export default function Login() {
       alert("Usuário ou senha incorretos");
     } else {
       alert("Sucesso", "Login bem-sucedido");
-      // Você pode navegar para a próxima página ou executar outras ações após o login
+      navigation.navigate("Home");
     }
   };
 

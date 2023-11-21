@@ -1,16 +1,22 @@
 // import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import Sobre from "./src/pages/Sobre/sobre";
-//import Login from "./src/pages/Login";
+import Sobre from "./src/pages/Sobre";
+import Login from "./src/pages/Login";
 import Home from "./src/pages/Home";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { StackNavigate } from "./routes";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Home />
-      {/* <Login /> */}
-      {/* <StatusBar style="auto" /> */}
-    </View>
+    <NavigationContainer>
+      <StackNavigate></StackNavigate>
+    </NavigationContainer>
+    // <View style={styles.container}>
+    //   <Home />
+    //   <Login />
+    //   <StatusBar style="auto" />
+    // </View>
   );
 }
 
