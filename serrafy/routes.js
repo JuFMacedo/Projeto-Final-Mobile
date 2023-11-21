@@ -35,31 +35,59 @@ export const StackNavigate = () => {
 
 export const TabNavigate = () => {
   return (
-    <Tab.Navigator>
-      <Stack.Screen
+    <Tab.Navigator
+      backBehavior="none"
+      screenOptions={{
+        tabBarStyle: {
+          borderTopColor: "transparent",
+          paddingTop: 4,
+        },
+        tabBarActiveTintColor: "blue",
+        tabBarInactiveTintColor: "black",
+        headerShown: false,
+      }}
+    >
+      <Tab.Screen
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: () => (
-            <Ionicons name="home-outline" size={24} color="tomato" />
-          ),
-          tabBarActiveTintColor: "tomato",
-          tabBarInactiveTintColor: "gray",
-          tabBarBadge: 3,
+          tabBarIcon: ({ focused }) => {
+            if (focused) {
+              return <Ionicons name="home-outline" size={28} color="blue" />;
+            }
+            return <Ionicons name="home-outline" size={26} color="black" />;
+          },
+          // tabBarActiveTintColor: "tomato",
+          // tabBarInactiveTintColor: "gray",
+          // tabBarBadge: 3,
         }}
       />
-      <Stack.Screen
-        name="Musicas"
+      <Tab.Screen
+        name="Músicas"
         component={Musicas}
         options={{
-          tabBarIcon: () => <Octicons name="tools" size={24} color="black" />,
+          tabBarIcon: ({ focused }) => {
+            if (focused) {
+              return (
+                <Ionicons name="musical-notes-outline" size={28} color="blue" />
+              );
+            }
+            return (
+              <Ionicons name="musical-notes-outline" size={26} color="black" />
+            );
+          },
         }}
       />
-      <Stack.Screen
+      <Tab.Screen
         name="Sobre"
         component={Sobre}
         options={{
-          tabBarIcon: () => <Octicons name="tools" size={24} color="black" />,
+          tabBarIcon: ({ focused }) => {
+            if (focused) {
+              return <Ionicons name="people-outline" size={28} color="blue" />;
+            }
+            return <Ionicons name="people-outline" size={26} color="black" />;
+          },
         }}
       />
     </Tab.Navigator>
