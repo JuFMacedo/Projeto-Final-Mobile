@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginHorizontal: -130,
     color: "#fff",
-    fontSize: 50,
+    fontSize: 40,
     justifyContent: "center",
   },
   headerText: {
