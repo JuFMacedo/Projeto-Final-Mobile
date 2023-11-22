@@ -9,6 +9,7 @@ export default function Musicas() {
   const [musicas, setMusicas] = useState([]);
   const [autor, setAutor] = useState("");
   const [genero, setGenero] = useState("");
+  const [imagem, setImagem] = useState("");
   const [loading, setLoading] = useState(false);
 
   const carregarMusicasPorGenero = async (genero) => {
@@ -29,6 +30,7 @@ export default function Musicas() {
       nome: novaMusica,
       autor: autor,
       genero: genero,
+      imagem: imagem,
     };
 
     try {
@@ -38,6 +40,7 @@ export default function Musicas() {
       setNovaMusica("");
       setAutor("");
       setGenero("");
+      setImagem("");
     } catch (error) {
       console.error("Erro na requisição cadastrar:", error);
     }

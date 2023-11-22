@@ -14,13 +14,15 @@ export default function CreateMusic({
   setAutor,
   genero,
   setGenero,
+  imagem,
+  setImagem,
   cadastrar,
   buscarPorGenero,
 }) {
   const [filtroGenero, setFiltroGenero] = useState("");
 
   const handleCadastrar = () => {
-    if (!novaMusica || !autor || !genero) {
+    if (!novaMusica || !autor || !genero || !imagem) {
       alert("Todos os campos devem ser preenchidos.");
       return;
     }
@@ -55,6 +57,13 @@ export default function CreateMusic({
           value={genero}
           onChangeText={(newGenero) => setGenero(newGenero)}
           placeholder="Genero"
+          placeholderTextColor="#727171"
+        />
+        <TextInput
+          style={styles.input}
+          value={imagem}
+          onChangeText={(newImagem) => setImagem(newImagem)}
+          placeholder="Uri da Imagem"
           placeholderTextColor="#727171"
         />
         <TouchableOpacity onPress={handleCadastrar}>
