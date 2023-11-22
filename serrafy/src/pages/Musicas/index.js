@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import api from "../../service/api";
 import CreateMusic from "../../components/CreateMusic";
 import Musica from "../../components/Musicas";
-import axios from "axios";
 
 export default function Musicas() {
   const [novaMusica, setNovaMusica] = useState("");
@@ -11,8 +10,6 @@ export default function Musicas() {
   const [autor, setAutor] = useState("");
   const [genero, setGenero] = useState("");
   const [loading, setLoading] = useState(false);
-
-  // const url = "https://65482e6add8ebcd4ab229f62.mockapi.io/serrafy";
 
   const carregarMusicasPorGenero = async (genero) => {
     setLoading(true);
@@ -69,6 +66,7 @@ export default function Musicas() {
   useEffect(() => {
     carregarMusicasPorGenero(genero);
   }, [genero]);
+  console.log(genero);
 
   return (
     <ScrollView>
