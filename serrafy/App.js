@@ -1,9 +1,4 @@
-// import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import Sobre from "./src/pages/Sobre";
-import Login from "./src/pages/Login";
-import Home from "./src/pages/Home";
-
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { StackNavigate } from "./routes";
 
@@ -12,11 +7,6 @@ export default function App() {
     <NavigationContainer>
       <StackNavigate></StackNavigate>
     </NavigationContainer>
-    // <View style={styles.container}>
-    //   <Home />
-    //   <Login />
-    //   <StatusBar style="auto" />
-    // </View>
   );
 }
 

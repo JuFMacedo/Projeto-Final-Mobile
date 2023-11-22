@@ -20,7 +20,7 @@ const Header = () => {
   );
 };
 
-//Card das músicas:
+//Card das músicas
 const MusicCard = ({ musicType, imageSource, onPress }) => {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
@@ -37,9 +37,36 @@ export default function App() {
   //   console.log(`Botão ${buttonName} pressionado!`);
   // };
 
+  //Colocar a página que quer que seja redirecionado
   const navigateToMusicList = (musicType) => {
-    //Colocar a página que quer que seja redirecionado
-    navigation.navigate("MusicList", { musicType });
+    let routeName = "";
+
+    switch (musicType) {
+      case "Rock":
+        routeName = "MusicasRock";
+        break;
+      case "Eletrônica":
+        routeName = "MusicasEletronicas";
+        break;
+      case "Pop":
+        routeName = "MusicasPop";
+        break;
+      case "HipHop":
+        routeName = "MusicasHipHop";
+        break;
+      case "Pagode":
+        routeName = "MusicasPagode";
+        break;
+      case "Sertanejo":
+        routeName = "MusicasSertanejo";
+        break;
+
+      default:
+        console.warn(`Rota não encontrada para o tipo de música: ${musicType}`);
+    }
+    if (routeName !== "") {
+      navigation.navigate(routeName, { musicType });
+    }
   };
 
   return (
@@ -51,28 +78,28 @@ export default function App() {
           <MusicCard
             musicType="Rock"
             imageSource={require("../../../assets/music/rock.jpg")}
-            onPress={() => navigateToMusicList("Rock")} //Trocar para lista correta
+            onPress={() => navigateToMusicList("Rock")}
           />
           <MusicCard
             musicType="Eletrônica"
             imageSource={require("../../../assets/music/eletro.jpg")}
-            onPress={() => navigateToMusicList("Eletro")} //Trocar para lista correta
+            onPress={() => navigateToMusicList("Eletronica")}
           />
           <MusicCard
             musicType="Pop"
             imageSource={require("../../../assets/music/pop.jpg")}
-            onPress={() => navigateToMusicList("Pop")} //Trocar para lista correta
+            onPress={() => navigateToMusicList("Pop")}
           />
           <MusicCard
             musicType="HipHop"
             imageSource={require("../../../assets/music/hiphop.jpg")}
-            onPress={() => navigateToMusicList("HipHop")} //Trocar para lista correta
+            onPress={() => navigateToMusicList("HipHop")}
           />
 
           <MusicCard
             musicType="Pagode"
             imageSource={require("../../../assets/music/pagode.png")}
-            onPress={() => navigateToMusicList("Pagode")} //Trocar para lista correta
+            onPress={() => navigateToMusicList("Pagode")}
           />
           <MusicCard
             musicType="Sertanejo"
@@ -114,7 +141,7 @@ const styles = StyleSheet.create({
     color: "white",
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: "20",
+    marginTop: 20,
   },
   card: {
     backgroundColor: "#f4f4f4",

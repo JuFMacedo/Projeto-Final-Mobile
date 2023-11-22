@@ -1,11 +1,11 @@
 import "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
-import { Octicons } from "@expo/vector-icons";
-
+// import { Octicons } from "@expo/vector-icons";
 import Login from "./src/pages/Login";
 import Home from "./src/pages/Home";
 import Musicas from "./src/pages/Musicas";
 import Sobre from "./src/pages/Sobre";
+import Rock from ".src/pages/Generos/Rock";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -25,6 +25,13 @@ export const StackNavigate = () => {
       <Stack.Screen
         name="Home"
         component={TabNavigate}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Rock"
+        component={Rock}
         options={{
           headerShown: false,
         }}
