@@ -12,6 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 export default function Musicas({ route }) {
   const { musicType } = route.params;
   const [musicasRock, setMusicasRock] = useState([]);
+  const [selectedMusic, setSelectedMusic] = useState(null); //vai controlar a música selecionada
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -30,41 +31,50 @@ export default function Musicas({ route }) {
     fetchData();
   }, [musicType]);
 
-  const navigateToMusicDetail = (nome, autor, genero, image) => {
-    navigation.navigate("Sobre a música", {
-      nome,
-      autor,
-      genero,
-      image,
-    });
+  const openMusicDetail = (nome, autor, genero, image) => {
+    setSelectedMusic({ nome, autor, genero, image }); // vai definir a música selecionada quando clicar no card
+  };
+
+  const closeMusicDetail = () => {
+    setSelectedMusic(null); // Limpa a música selecionada para fechar os detalhes
   };
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.cardContainer}
       onPress={() =>
-        navigateToMusicDetail(item.nome, item.autor, item.genero, item.image)
+        openMusicDetail(item.nome, item.autor, item.genero, item.image)
       }
     >
       <View style={styles.cardDetails}>
         <Image source={{ uri: item.imagem }} style={styles.cardImage} />
         <Text style={styles.songName}>{item.nome}</Text>
-        <Text style={styles.songInfo}>
-          Cantor: {item.autor} Álbum: {item.genero}
-        </Text>
       </View>
     </TouchableOpacity>
   );
 
   return (
     <View style={styles.container}>
-      <Text>{musicType} - Rock </Text>
+      <Text style={styles.listenNowText}>Ouça agora:</Text>
       <FlatList
-        style={{ paddingTop: 60 }}
+        style={{ paddingTop: 20 }}
         data={musicasRock}
         keyExtractor={(musica) => musica.id.toString()}
         renderItem={renderItem}
       />
+      {selectedMusic && (
+        <TouchableOpacity
+          style={styles.selectedMusicContainer}
+          onPress={closeMusicDetail}
+        >
+          <View style={styles.selectedMusicDetails}>
+            <Text style={styles.songName}>{selectedMusic.nome}</Text>
+            <Text style={styles.songInfo}>Cantor: {selectedMusic.autor}</Text>
+            <Text style={styles.songInfo}>Álbum: {selectedMusic.genero}</Text>
+            <Text style={styles.closeButton}>Fechar</Text>
+          </View>
+        </TouchableOpacity>
+      )}
     </View>
   );
 }
@@ -87,8 +97,8 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   cardImage: {
-    width: 80,
-    height: 80,
+    width: 100,
+    height: 100,
     borderRadius: 8,
   },
   cardDetails: {
@@ -97,9 +107,43 @@ const styles = StyleSheet.create({
   songName: {
     fontSize: 16,
     fontWeight: "bold",
+    flex: 1,
   },
   songInfo: {
     fontSize: 14,
     color: "gray",
+  },
+  selectedMusicContainer: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)", // Cor de fundo para a tela de detalhes, para tela de trás ficar mais escura
+  },
+  selectedMusicDetails: {
+    backgroundColor: "white",
+    borderRadius: 18,
+    padding: 20,
+    alignItems: "center",
+    width: "80%",
+    alignSelf: "center",
+    position: "absolute",
+    top: "50%",
+  },
+
+  closeButton: {
+    color: "blue",
+    marginTop: 10,
+  },
+
+  listenNowText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginTop: 50,
+    color: "#fff",
+    marginBottom: 10,
   },
 });
