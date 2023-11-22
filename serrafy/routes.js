@@ -5,7 +5,7 @@ import Login from "./src/pages/Login";
 import Home from "./src/pages/Home";
 import Musicas from "./src/pages/Musicas";
 import Sobre from "./src/pages/Sobre";
-import Rock from ".src/pages/Generos/Rock";
+import Rock from "./src/pages/Generos/Rock/rock";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 

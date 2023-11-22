@@ -43,22 +43,22 @@ export default function App() {
 
     switch (musicType) {
       case "Rock":
-        routeName = "MusicasRock";
+        routeName = "Rock";
         break;
       case "Eletrônica":
-        routeName = "MusicasEletronicas";
+        routeName = "Eletronicas";
         break;
       case "Pop":
-        routeName = "MusicasPop";
+        routeName = "Pop";
         break;
       case "HipHop":
-        routeName = "MusicasHipHop";
+        routeName = "HipHop";
         break;
       case "Pagode":
-        routeName = "MusicasPagode";
+        routeName = "Pagode";
         break;
       case "Sertanejo":
-        routeName = "MusicasSertanejo";
+        routeName = "Sertanejo";
         break;
 
       default:

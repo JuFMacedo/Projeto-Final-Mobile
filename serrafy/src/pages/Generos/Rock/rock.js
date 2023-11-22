@@ -30,12 +30,12 @@ export default function Musicas({ route }) {
     fetchData();
   }, [musicType]);
 
-  const navigateToMusicDetail = (nomemusica, nomecantor, album, tempo) => {
+  const navigateToMusicDetail = (nome, autor, genero, image) => {
     navigation.navigate("Sobre a música", {
-      nomemusica,
-      nomecantor,
-      album,
-      tempo,
+      nome,
+      autor,
+      genero,
+      image,
     });
   };
 
@@ -43,23 +43,15 @@ export default function Musicas({ route }) {
     <TouchableOpacity
       style={styles.cardContainer}
       onPress={() =>
-        navigateToMusicDetail(
-          item.nomemusica,
-          item.nomecantor,
-          item.album,
-          item.tempo
-        )
+        navigateToMusicDetail(item.nome, item.autor, item.genero, item.image)
       }
     >
-      {/* Se a API fornecer URLs de imagens usar: */}
-      {/* <Image source={{ uri: item.imagem }} style={styles.cardImage} /> */}
-
       <View style={styles.cardDetails}>
-        <Text style={styles.songName}>{item.nomemusica}</Text>
+        <Image source={{ uri: item.imagem }} style={styles.cardImage} />
+        <Text style={styles.songName}>{item.nome}</Text>
         <Text style={styles.songInfo}>
-          Cantor: {item.nomecantor} - Álbum: {item.album}
+          Cantor: {item.autor} Álbum: {item.genero}
         </Text>
-        <Text style={styles.songInfo}>Duração: {item.tempo}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -68,6 +60,7 @@ export default function Musicas({ route }) {
     <View style={styles.container}>
       <Text>{musicType} - Rock </Text>
       <FlatList
+        style={{ paddingTop: 60 }}
         data={musicasRock}
         keyExtractor={(musica) => musica.id.toString()}
         renderItem={renderItem}
@@ -81,8 +74,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#d9d9d9",
+    backgroundColor: "#010625",
   },
+
   cardContainer: {
     flexDirection: "row",
     alignItems: "center",
