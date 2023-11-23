@@ -109,6 +109,6 @@ export default function Musicas() {
 
 const styles = StyleSheet.create({
   safeArea: {
-    backgroundColor: "#010625",
+    backgroundColor: "#151515",
   },
 });

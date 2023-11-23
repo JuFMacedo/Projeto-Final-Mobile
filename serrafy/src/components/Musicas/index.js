@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft: 5,
     marginRight: 5,
-    backgroundColor: "#010625",
+    backgroundColor: "#151515",
     width: 100,
     borderWidth: 2,
     borderColor: "orange",
@@ -106,13 +106,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 19,
     fontWeight: "bold",
-    color: "#010625",
+    color: "#151515",
     marginBottom: 8,
   },
 
   subtitle: {
     fontSize: 17,
-    color: "#010625",
+    color: "#151515",
   },
 
   cardImage: {
@@ -120,6 +120,6 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: "#010625",
+    borderColor: "#151515",
   },
 });

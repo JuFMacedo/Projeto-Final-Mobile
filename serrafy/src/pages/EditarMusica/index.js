@@ -98,14 +98,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     padding: 16,
-    backgroundColor: "#d9d9d9",
+    backgroundColor: "#151515",
+    color: "#fff",
   },
   header: {
     fontSize: 24,
     marginBottom: 20,
+    color: "#fff",
   },
   inputs: {
     marginBottom: 20,
+    color: "#fff",
   },
   input: {
     height: 40,
@@ -113,6 +116,7 @@ const styles = StyleSheet.create({
     marginLeft: 18,
     width: "100%",
     borderBottomWidth: 1,
+    color: "#fff",
   },
   button: {
     width: "100%",
@@ -120,9 +124,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#4CAF50",
     justifyContent: "center",
     alignItems: "center",
+    color: "#fff",
   },
   buttonText: {
     color: "white",
     fontSize: 20,
+    color: "#fff",
   },
 });

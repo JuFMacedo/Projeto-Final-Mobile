@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     textAlign: "center",
-    backgroundColor: "#010625",
+    backgroundColor: "#151515",
     alignItems: "center",
     width: "100%",
   },
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#004AAD",
     width: 170,
     borderWidth: 3,
-    borderColor: "#010625",
+    borderColor: "#151515",
     borderRadius: 20,
   },
 

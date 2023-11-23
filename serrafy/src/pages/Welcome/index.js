@@ -49,11 +49,11 @@ export default function Welcome() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#010625",
+    backgroundColor: "#151515",
   },
   containerLogo: {
     flex: 2,
-    backgroundColor: "#010625",
+    backgroundColor: "#151515",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -72,11 +72,11 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   text: {
-    color: "#010625",
+    color: "#151515",
   },
   button: {
     position: "absolute",
-    backgroundColor: "#010625",
+    backgroundColor: "#151515",
     borderRadius: 50,
     borderWidth: 2,
     borderColor: "#004AAD",

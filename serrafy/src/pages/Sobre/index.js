@@ -116,13 +116,13 @@ export default function Sobre() {
 
 const styles = StyleSheet.create({
   safeArea: {
-    backgroundColor: "#010625",
+    backgroundColor: "#151515",
   },
   container: {
     flex: 1,
     padding: 20,
     // paddingTop: 40,
-    backgroundColor: "#010625",
+    backgroundColor: "#151515",
   },
   section: {
     marginBottom: 20,

@@ -117,17 +117,17 @@ export default function App() {
 
 const styles = StyleSheet.create({
   safeArea: {
-    backgroundColor: "#010625",
+    backgroundColor: "#151515",
   },
 
   container: {
     flex: 1,
     justifyContent: "space-between",
-    backgroundColor: "#010625",
+    backgroundColor: "#151515",
     color: "white",
   },
   header: {
-    backgroundColor: "#010625",
+    backgroundColor: "#151515",
     paddingVertical: 10,
     alignItems: "center",
     // marginHorizontal: -130,
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: "#010625",
+    borderColor: "#151515",
     resizeMode: "cover",
   },
   cardText: {

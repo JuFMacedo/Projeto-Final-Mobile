@@ -104,7 +104,7 @@ export const TabNavigate = () => {
         tabBarStyle: {
           borderTopColor: "transparent",
           paddingTop: 4,
-          backgroundColor: "#FAA660",
+          backgroundColor: "#D3FBD8",
           height: 75,
         },
         tabBarActiveTintColor: "blue",
