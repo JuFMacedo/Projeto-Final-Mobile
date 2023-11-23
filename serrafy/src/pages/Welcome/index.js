@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#151515",
+    fontSize: 15,
   },
   button: {
     position: "absolute",
