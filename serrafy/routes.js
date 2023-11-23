@@ -13,6 +13,7 @@ import Pop from "./src/pages/Generos/Pop/pop";
 import Sertanejo from "./src/pages/Generos/Sertanejo/sertanejo";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import EditarMusica from "./src/pages/EditarMusica";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -72,6 +73,13 @@ export const StackNavigate = () => {
       <Stack.Screen
         name="Sertanejo"
         component={Sertanejo}
+        options={{
+          headerShown: true,
+        }}
+      />
+      <Stack.Screen
+        name="EditarMusica"
+        component={EditarMusica}
         options={{
           headerShown: true,
         }}

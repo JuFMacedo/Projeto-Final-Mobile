@@ -82,6 +82,8 @@ export default function Musicas() {
             setAutor={setAutor}
             genero={genero}
             setGenero={setGenero}
+            imagem={imagem}
+            setImagem={setImagem}
             cadastrar={cadastrar}
             buscarPorGenero={carregarMusicasPorGenero}
           />
