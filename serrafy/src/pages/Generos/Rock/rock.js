@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import App from "../Rock/play";
 import {
   View,
   Text,
@@ -56,6 +57,7 @@ export default function Musicas({ route }) {
   return (
     <View style={styles.container}>
       <Text style={styles.listenNowText}>Ouça agora:</Text>
+      <Text style={styles.playSound}>Play</Text>
       <FlatList
         style={{ paddingTop: 20 }}
         data={musicasRock}
