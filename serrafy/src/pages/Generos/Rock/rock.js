@@ -8,6 +8,7 @@ import {
   Image,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function Musicas({ route }) {
   const { musicType } = route.params;
@@ -55,7 +56,8 @@ export default function Musicas({ route }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.listenNowText}>Ouça agora:</Text>
+      <Text style={styles.listenNowText}>Ouça agora</Text>
+      <Ionicons name="play-circle" size={28} color="#fff" />
       <FlatList
         style={{ paddingTop: 20 }}
         data={musicasRock}
