@@ -6,6 +6,11 @@ import Home from "./src/pages/Home";
 import Musicas from "./src/pages/Musicas";
 import Sobre from "./src/pages/Sobre";
 import Rock from "./src/pages/Generos/Rock/rock";
+import Eletronica from "./src/pages/Generos/Eletronica/eletronica";
+import Hiphop from "./src/pages/Generos/HipHop/hiphop";
+import Pagode from "./src/pages/Generos/Pagode/pagode";
+import Pop from "./src/pages/Generos/Pop/pop";
+import Sertanejo from "./src/pages/Generos/Sertanejo/sertanejo";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -33,7 +38,42 @@ export const StackNavigate = () => {
         name="Rock"
         component={Rock}
         options={{
-          headerShown: false,
+          headerShown: true,
+        }}
+      />
+      <Stack.Screen
+        name="Eletronica"
+        component={Eletronica}
+        options={{
+          headerShown: true,
+        }}
+      />
+      <Stack.Screen
+        name="HipHop"
+        component={Hiphop}
+        options={{
+          headerShown: true,
+        }}
+      />
+      <Stack.Screen
+        name="Pagode"
+        component={Pagode}
+        options={{
+          headerShown: true,
+        }}
+      />
+      <Stack.Screen
+        name="Pop"
+        component={Pop}
+        options={{
+          headerShown: true,
+        }}
+      />
+      <Stack.Screen
+        name="Sertanejo"
+        component={Sertanejo}
+        options={{
+          headerShown: true,
         }}
       />
     </Stack.Navigator>
