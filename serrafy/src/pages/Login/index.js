@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import * as Animatable from "react-native-animatable";
 
 export default function Login({ navigation }) {
   const [username, setUsername] = useState("");
@@ -23,6 +24,8 @@ export default function Login({ navigation }) {
       alert("Preencha todos os campos");
     } else if (username !== mockUsername || senha !== mockSenha) {
       // Verificar se o usuário e senha estão corretos - de acordo com os dados mockados
+      setUsername("");
+      setSenha("");
       alert("Usuário ou senha incorretos");
     } else {
       navigation.navigate("Home");
@@ -40,7 +43,11 @@ export default function Login({ navigation }) {
         resetScrollToCoords={{ x: 0, y: 0 }}
         scrollEnabled={true}
       >
-        <View style={styles.viewImage}>
+        <Animatable.View
+          delay={500}
+          animation="fadeInDown"
+          style={styles.viewImage}
+        >
           <Image
             source={require("../../../assets/serrafylogo.png")}
             style={{
@@ -52,11 +59,17 @@ export default function Login({ navigation }) {
               resizeMode: "cover",
             }}
           />
-        </View>
-        <Text style={styles.titulo}>Login</Text>
-        <View style={styles.main}>
+        </Animatable.View>
+        <Animatable.Text
+          delay={500}
+          animation="fadeInLeft"
+          style={styles.titulo}
+        >
+          Login
+        </Animatable.Text>
+        <Animatable.View delay={1500} animation="fadeInUp" style={styles.main}>
           <View style={styles.inputsMain}>
-            <Text style={styles.textos}>Username</Text>
+            <Text style={styles.textos}>Usuário:</Text>
             <TextInput
               placeholder="Insira o username"
               value={username}
@@ -98,7 +111,7 @@ export default function Login({ navigation }) {
           <TouchableOpacity onPress={logar} style={styles.botao}>
             <Text style={styles.textoBotao}>Entrar</Text>
           </TouchableOpacity>
-        </View>
+        </Animatable.View>
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );
@@ -121,7 +134,7 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     borderWidth: 5,
-    borderColor: "orange",
+    borderColor: "white",
     borderRadius: 100,
     backgroundColor: "#FFFDFD",
     overflow: "hidden",
@@ -140,7 +153,7 @@ const styles = StyleSheet.create({
     width: 300,
     padding: 30,
     borderRadius: 30,
-    borderColor: "orange",
+    borderColor: "#004AAD",
     borderWidth: 3,
     textAlign: "center",
     alignItems: "center",
@@ -168,7 +181,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#004AAD",
     width: 170,
     borderWidth: 3,
-    borderColor: "orange",
+    borderColor: "#010625",
     borderRadius: 20,
   },
 

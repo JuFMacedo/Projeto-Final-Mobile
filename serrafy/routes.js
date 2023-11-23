@@ -14,13 +14,21 @@ import Sertanejo from "./src/pages/Generos/Sertanejo/sertanejo";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import EditarMusica from "./src/pages/EditarMusica";
+import Welcome from "./src/pages/Welcome";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export const StackNavigate = () => {
   return (
-    <Stack.Navigator initialRouteName="Login">
+    <Stack.Navigator initialRouteName="Welcome">
+      <Stack.Screen
+        name="Welcome"
+        component={Welcome}
+        options={{
+          headerShown: false,
+        }}
+      />
       <Stack.Screen
         name="Login"
         component={Login}

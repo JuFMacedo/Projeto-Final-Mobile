@@ -10,7 +10,7 @@ import { useRoute } from "@react-navigation/native";
 import api from "../../service/api";
 
 export default function EditarMusica({}) {
-  const EditMuicModel = {
+  const EditMusicModel = {
     id: null,
     nome: "",
     autor: "",
@@ -21,7 +21,7 @@ export default function EditarMusica({}) {
   const route = useRoute();
   //   const { state } = route.params;
 
-  const [editMusicModel, setEditMusicModel] = useState(EditMuicModel);
+  const [editMusicModel, setEditMusicModel] = useState(EditMusicModel);
 
   function handleEditMusicModel(value, key) {
     setEditMusicModel({
