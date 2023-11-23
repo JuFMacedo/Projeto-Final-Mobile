@@ -96,6 +96,8 @@ export const TabNavigate = () => {
         tabBarStyle: {
           borderTopColor: "transparent",
           paddingTop: 4,
+          backgroundColor: "#FAA660",
+          height: 75,
         },
         tabBarActiveTintColor: "blue",
         tabBarInactiveTintColor: "black",
@@ -108,7 +110,7 @@ export const TabNavigate = () => {
         options={{
           tabBarIcon: ({ focused }) => {
             if (focused) {
-              return <Ionicons name="home-outline" size={28} color="blue" />;
+              return <Ionicons name="home-outline" size={28} color="#004AAD" />;
             }
             return <Ionicons name="home-outline" size={26} color="black" />;
           },
@@ -124,7 +126,11 @@ export const TabNavigate = () => {
           tabBarIcon: ({ focused }) => {
             if (focused) {
               return (
-                <Ionicons name="musical-notes-outline" size={28} color="blue" />
+                <Ionicons
+                  name="musical-notes-outline"
+                  size={28}
+                  color="#004AAD"
+                />
               );
             }
             return (
@@ -139,7 +145,9 @@ export const TabNavigate = () => {
         options={{
           tabBarIcon: ({ focused }) => {
             if (focused) {
-              return <Ionicons name="people-outline" size={28} color="blue" />;
+              return (
+                <Ionicons name="people-outline" size={28} color="#004AAD" />
+              );
             }
             return <Ionicons name="people-outline" size={26} color="black" />;
           },

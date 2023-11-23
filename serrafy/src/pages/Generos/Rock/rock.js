@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   cardImage: {
     width: 100,
     height: 100,
-    borderRadius: 8,
+    borderRadius: 10,
   },
   cardDetails: {
     marginLeft: 12,

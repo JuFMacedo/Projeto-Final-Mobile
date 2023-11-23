@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Image,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -14,7 +15,7 @@ const Header = () => {
     <View style={styles.header}>
       <Text style={styles.header}>Serrafy</Text>
       <Text style={styles.headerText}>
-        Selecione o tipo de música desejado:
+        Selecione o gênero musical desejado:
       </Text>
     </View>
   );
@@ -70,49 +71,55 @@ export default function App() {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-      <View style={styles.container}>
-        <Header />
-        <View style={styles.content}>
-          {/* Cards de música */}
-          <MusicCard
-            musicType="Rock"
-            imageSource={require("../../../assets/music/rock.jpg")}
-            onPress={() => navigateToMusicList("Rock")}
-          />
-          <MusicCard
-            musicType="Eletrônica"
-            imageSource={require("../../../assets/music/eletro.jpg")}
-            onPress={() => navigateToMusicList("Eletronica")}
-          />
-          <MusicCard
-            musicType="Pop"
-            imageSource={require("../../../assets/music/pop.jpg")}
-            onPress={() => navigateToMusicList("Pop")}
-          />
-          <MusicCard
-            musicType="HipHop"
-            imageSource={require("../../../assets/music/hiphop.jpg")}
-            onPress={() => navigateToMusicList("HipHop")}
-          />
+    <SafeAreaView style={styles.safeArea}>
+      <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+        <View style={styles.container}>
+          <Header />
+          <View style={styles.content}>
+            {/* Cards de música */}
+            <MusicCard
+              musicType="Rock"
+              imageSource={require("../../../assets/music/rock.jpg")}
+              onPress={() => navigateToMusicList("Rock")}
+            />
+            <MusicCard
+              musicType="Eletrônica"
+              imageSource={require("../../../assets/music/eletro.jpg")}
+              onPress={() => navigateToMusicList("Eletronica")}
+            />
+            <MusicCard
+              musicType="Pop"
+              imageSource={require("../../../assets/music/pop.jpg")}
+              onPress={() => navigateToMusicList("Pop")}
+            />
+            <MusicCard
+              musicType="HipHop"
+              imageSource={require("../../../assets/music/hiphop.jpg")}
+              onPress={() => navigateToMusicList("HipHop")}
+            />
 
-          <MusicCard
-            musicType="Pagode"
-            imageSource={require("../../../assets/music/pagode.png")}
-            onPress={() => navigateToMusicList("Pagode")}
-          />
-          <MusicCard
-            musicType="Sertanejo"
-            imageSource={require("../../../assets/music/sertanejo.png")}
-            onPress={() => navigateToMusicList("Sertanejo")}
-          />
+            <MusicCard
+              musicType="Pagode"
+              imageSource={require("../../../assets/music/pagode.png")}
+              onPress={() => navigateToMusicList("Pagode")}
+            />
+            <MusicCard
+              musicType="Sertanejo"
+              imageSource={require("../../../assets/music/sertanejo.png")}
+              onPress={() => navigateToMusicList("Sertanejo")}
+            />
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    backgroundColor: "#010625",
+  },
+
   container: {
     flex: 1,
     justifyContent: "space-between",
@@ -123,16 +130,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#010625",
     paddingVertical: 10,
     alignItems: "center",
-    marginHorizontal: -130,
+    // marginHorizontal: -130,
     color: "#fff",
-    fontSize: 40,
+    fontSize: 34,
+    fontWeight: "bold",
     justifyContent: "center",
   },
   headerText: {
     color: "#fff",
     fontSize: 18,
     justifyContent: "center",
-    marginTop: 10,
+    marginTop: 3,
   },
   content: {
     flex: 1,
@@ -141,7 +149,7 @@ const styles = StyleSheet.create({
     color: "white",
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: 20,
+    marginTop: 10,
   },
   card: {
     backgroundColor: "#f4f4f4",
@@ -149,12 +157,17 @@ const styles = StyleSheet.create({
     padding: 20,
     margin: 10,
     borderRadius: 10,
+    borderColor: "orange",
+    borderWidth: 1,
     width: "40%",
   },
   cardImage: {
     width: 130,
     height: 130,
     marginBottom: 10,
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: "#010625",
     resizeMode: "cover",
   },
   cardText: {

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import api from "../../service/api";
 import CreateMusic from "../../components/CreateMusic";
 import Musica from "../../components/Musicas";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Musicas() {
   const [novaMusica, setNovaMusica] = useState("");
@@ -72,34 +73,42 @@ export default function Musicas() {
   console.log(genero);
 
   return (
-    <ScrollView>
-      <View>
-        <View style={{ justifyContent: "center", alignItems: "center" }}>
-          <CreateMusic
-            novaMusica={novaMusica}
-            setNovaMusica={setNovaMusica}
-            autor={autor}
-            setAutor={setAutor}
-            genero={genero}
-            setGenero={setGenero}
-            imagem={imagem}
-            setImagem={setImagem}
-            cadastrar={cadastrar}
-            buscarPorGenero={carregarMusicasPorGenero}
-          />
-        </View>
-        <View style={{ justifyContent: "center", alignItems: "center" }}>
-          <Text>Sua Playlist</Text>
-          {musicas.map((musica) => (
-            <Musica
-              key={musica.id}
-              item={musica}
-              editarMusica={editarMusica}
-              excluirMusica={excluirMusica}
+    <SafeAreaView style={styles.safeArea}>
+      <ScrollView>
+        <View>
+          <View style={{ justifyContent: "center", alignItems: "center" }}>
+            <CreateMusic
+              novaMusica={novaMusica}
+              setNovaMusica={setNovaMusica}
+              autor={autor}
+              setAutor={setAutor}
+              genero={genero}
+              setGenero={setGenero}
+              imagem={imagem}
+              setImagem={setImagem}
+              cadastrar={cadastrar}
+              buscarPorGenero={carregarMusicasPorGenero}
             />
-          ))}
+          </View>
+          <View style={{ justifyContent: "center", alignItems: "center" }}>
+            <Text>Sua Playlist</Text>
+            {musicas.map((musica) => (
+              <Musica
+                key={musica.id}
+                item={musica}
+                editarMusica={editarMusica}
+                excluirMusica={excluirMusica}
+              />
+            ))}
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  safeArea: {
+    backgroundColor: "#010625",
+  },
+});

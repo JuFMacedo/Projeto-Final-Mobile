@@ -25,7 +25,6 @@ export default function Login({ navigation }) {
       // Verificar se o usuário e senha estão corretos - de acordo com os dados mockados
       alert("Usuário ou senha incorretos");
     } else {
-      alert("Sucesso", "Login bem-sucedido");
       navigation.navigate("Home");
     }
   };
@@ -48,6 +47,8 @@ export default function Login({ navigation }) {
               width: 200,
               height: 200,
               borderRadius: 50,
+              borderWidth: 1,
+              borderColor: "orange",
               resizeMode: "cover",
             }}
           />
@@ -119,7 +120,8 @@ const styles = StyleSheet.create({
     marginTop: -70,
     width: 200,
     height: 200,
-    borderWidth: 10,
+    borderWidth: 5,
+    borderColor: "orange",
     borderRadius: 100,
     backgroundColor: "#FFFDFD",
     overflow: "hidden",
@@ -134,10 +136,12 @@ const styles = StyleSheet.create({
   },
 
   main: {
-    backgroundColor: "#FFFDFD",
+    backgroundColor: "#EBEBEB",
     width: 300,
     padding: 30,
     borderRadius: 30,
+    borderColor: "orange",
+    borderWidth: 3,
     textAlign: "center",
     alignItems: "center",
     justifyContent: "center",
@@ -163,8 +167,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     backgroundColor: "#004AAD",
     width: 170,
-    borderWidth: 4,
-    borderColor: "black",
+    borderWidth: 3,
+    borderColor: "orange",
     borderRadius: 20,
   },
 
