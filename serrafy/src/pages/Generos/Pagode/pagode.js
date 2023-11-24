@@ -97,7 +97,7 @@ export default function Musicas({ route }) {
           <View style={styles.selectedMusicDetails}>
             <Text style={styles.songName}>{selectedMusic.nome}</Text>
             <Text style={styles.songInfo}>Cantor: {selectedMusic.autor}</Text>
-            <Text style={styles.songInfo}>Álbum: {selectedMusic.genero}</Text>
+            <Text style={styles.songInfo}>Gênero: {selectedMusic.genero}</Text>
             <Text style={styles.closeButton}>Fechar</Text>
           </View>
         </TouchableOpacity>
