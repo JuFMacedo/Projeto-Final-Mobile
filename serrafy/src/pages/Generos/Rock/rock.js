@@ -9,11 +9,13 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
+import { Audio } from "expo-av";
 
 export default function Musicas({ route }) {
   const { musicType } = route.params;
   const [musicasRock, setMusicasRock] = useState([]);
-  const [selectedMusic, setSelectedMusic] = useState(null); //vai controlar a música selecionada
+  const [selectedMusic, setSelectedMusic] = useState(null);
+  const [sound, setSound] = useState();
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -30,14 +32,35 @@ export default function Musicas({ route }) {
     };
 
     fetchData();
+
+    return () => {
+      if (sound) {
+        sound.unloadAsync();
+      }
+    };
   }, [musicType]);
 
+  const playMusic = async () => {
+    if (sound) {
+      sound.stopAsync();
+    }
+
+    const { sound } = await Audio.Sound.createAsync(require("./rock.mp3"), {
+      shouldPlay: true,
+    });
+
+    setSound(sound);
+  };
+
   const openMusicDetail = (nome, autor, genero, image) => {
-    setSelectedMusic({ nome, autor, genero, image }); // vai definir a música selecionada quando clicar no card
+    setSelectedMusic({ nome, autor, genero, image });
   };
 
   const closeMusicDetail = () => {
-    setSelectedMusic(null); // Limpa a música selecionada para fechar os detalhes
+    if (sound) {
+      sound.stopAsync();
+    }
+    setSelectedMusic(null);
   };
 
   const renderItem = ({ item }) => (
@@ -56,8 +79,10 @@ export default function Musicas({ route }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.listenNowText}>Ouça agora</Text>
-      <Ionicons name="play-circle" size={28} color="#fff" />
+      <Text style={styles.listenNowText}>Ouça agora:</Text>
+      <TouchableOpacity onPress={playMusic}>
+        <Ionicons name="play-circle" size={28} color="#fff" />
+      </TouchableOpacity>
       <FlatList
         style={{ paddingTop: 20 }}
         data={musicasRock}
@@ -80,7 +105,6 @@ export default function Musicas({ route }) {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
