@@ -127,6 +127,9 @@ export default function CreateMusic({
         <TouchableOpacity onPress={handleBuscarPorGenero} style={styles.botao}>
           <Text style={styles.textoBotao}>Buscar por Gênero</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={handleBuscarPorGenero} style={styles.botao}>
+          <Text style={styles.textoBotao}>Atualizar</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -136,6 +139,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 15,
+    marginBottom: 10,
     paddingBottom: 15,
     justifyContent: "center",
     alignContent: "center",

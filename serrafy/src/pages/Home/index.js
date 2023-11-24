@@ -47,7 +47,7 @@ export default function App() {
         routeName = "Rock";
         break;
       case "Eletrônica":
-        routeName = "Eletronicas";
+        routeName = "Eletronica";
         break;
       case "Pop":
         routeName = "Pop";

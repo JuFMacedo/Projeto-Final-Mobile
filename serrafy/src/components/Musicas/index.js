@@ -14,8 +14,8 @@ export default function Musicas({ item, excluirMusica, state }) {
   const [exibirModal, setExibirModal] = useState(false);
   const navigation = useNavigation();
 
-  const navigate = () => {
-    navigation.navigate("EditarMusica");
+  const navegacao = (id) => {
+    navigation.navigate("EditarMusica", { id });
   };
 
   return (
@@ -31,7 +31,10 @@ export default function Musicas({ item, excluirMusica, state }) {
         </View>
       </View>
       <View style={styles.botoes}>
-        <TouchableOpacity onPress={navigate} style={styles.botao}>
+        <TouchableOpacity
+          onPress={() => navegacao(item.id)}
+          style={styles.botao}
+        >
           <Text style={styles.textoBotao}>Editar</Text>
         </TouchableOpacity>
         <TouchableOpacity

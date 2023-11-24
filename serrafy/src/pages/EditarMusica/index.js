@@ -19,7 +19,7 @@ export default function EditarMusica({}) {
   };
 
   const route = useRoute();
-  //   const { state } = route.params;
+  const { id } = route.params;
 
   const [editMusicModel, setEditMusicModel] = useState(EditMusicModel);
 
@@ -30,30 +30,33 @@ export default function EditarMusica({}) {
     });
   }
 
-  const editarMusica = async (id) => {
+  const editarMusica = async () => {
     try {
-      const response = await api.put(`/${id}`, editMusicModel);
+      const response = await api.put(
+        `https://6542c2e301b5e279de1f8bd8.mockapi.io/musicas/${id}`,
+        editMusicModel
+      );
       alert("Musica alterada com sucesso:", response.status);
     } catch (error) {
-      alert("Erro na requisição editar Musica:", error);
+      alert("Erro na requisição editar Musica:" + error + id);
     }
   };
 
-  //   useEffect(() => {
-  //     setEditMusicModel(state.item);
-  //   }, [state]);
+  //  useEffect(() => {
+  //    setEditMusicModel(state.item);
+  //  }, [state]);
 
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Edite sua música</Text>
 
       <View style={styles.inputs}>
-        <TextInput
+        {/* <TextInput
           placeholder="Id da Música"
           value={editMusicModel.id}
           onChangeText={(value) => handleEditMusicModel(value, "id")}
           style={styles.input}
-        />
+        /> */}
         <TextInput
           placeholder="Nome da Música"
           value={editMusicModel.nome}

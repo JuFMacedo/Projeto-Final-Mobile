@@ -1,9 +1,17 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  // ActivityIndicator,
+  RefreshControl,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import api from "../../service/api";
 import CreateMusic from "../../components/CreateMusic";
 import Musica from "../../components/Musicas";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function Musicas() {
   const [novaMusica, setNovaMusica] = useState("");
@@ -12,6 +20,7 @@ export default function Musicas() {
   const [genero, setGenero] = useState("");
   const [imagem, setImagem] = useState("");
   const [loading, setLoading] = useState(false);
+  // const [refreshing, setRefreshing] = useState(true);
 
   const carregarMusicasPorGenero = async (genero) => {
     setLoading(true);
@@ -75,6 +84,7 @@ export default function Musicas() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView>
+        {/* {refreshing ? <ActivityIndicator /> : null} */}
         <View>
           <View style={{ justifyContent: "center", alignItems: "center" }}>
             <CreateMusic
@@ -91,7 +101,8 @@ export default function Musicas() {
             />
           </View>
           <View style={{ justifyContent: "center", alignItems: "center" }}>
-            <Text>Sua Playlist</Text>
+            <Text style={styles.title}>Suas Músicas</Text>
+
             {musicas.map((musica) => (
               <Musica
                 key={musica.id}
@@ -102,6 +113,13 @@ export default function Musicas() {
             ))}
           </View>
         </View>
+        {/* refreshControl=
+        {
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={carregarMusicasPorGenero}
+          />
+        } */}
       </ScrollView>
     </SafeAreaView>
   );
@@ -110,5 +128,15 @@ export default function Musicas() {
 const styles = StyleSheet.create({
   safeArea: {
     backgroundColor: "#151515",
+  },
+  title: {
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "white",
+    marginTop: 10,
+    marginBottom: 10,
   },
 });
