@@ -1,11 +1,28 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
+import {
+  Button,
+  Alert,
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
 import * as Animatable from "react-native-animatable";
-
+import useNetworkStatus from "../../components/conexão/conexão";
 export default function Welcome() {
   const navigation = useNavigation();
+  const isConnected = useNetworkStatus(); // Use o hook aqui
+
+  const handlePress = () => {
+    if (isConnected) {
+      navigation.navigate("Login");
+    } else {
+      console.log("Você está offline, verifique sua conexão com a internet");
+      alert("Você está offline, verifique sua conexão com a internet");
+    }
+  };
   return (
     <View style={styles.container}>
       <View style={styles.containerLogo}>
@@ -27,8 +44,7 @@ export default function Welcome() {
       <Animatable.View
         delay={2000}
         animation="fadeInUp"
-        style={styles.containerForm}
-      >
+        style={styles.containerForm}>
         <Text style={styles.title}>
           O melhor App de Música da Região Serrana!
         </Text>
@@ -37,7 +53,7 @@ export default function Welcome() {
         </Text>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("Login")}
+          onPress={handlePress} // Use a função handlePress aqui
         >
           <Text style={styles.buttonText}>Acessar</Text>
         </TouchableOpacity>
