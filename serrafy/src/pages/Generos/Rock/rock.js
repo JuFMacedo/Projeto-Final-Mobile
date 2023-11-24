@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "#fff",
     borderRadius: 8,
     marginBottom: 12,
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
   songName: {
     fontSize: 16,
     fontWeight: "bold",
-    flex: 1,
+    // flex: 1,
   },
   songInfo: {
     fontSize: 14,
@@ -144,6 +145,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     position: "absolute",
     top: "50%",
+    // marginBottom: 200,
   },
 
   closeButton: {

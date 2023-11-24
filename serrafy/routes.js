@@ -89,7 +89,7 @@ export const StackNavigate = () => {
         name="EditarMusica"
         component={EditarMusica}
         options={{
-          headerShown: true,
+          headerShown: false,
         }}
       />
     </Stack.Navigator>
