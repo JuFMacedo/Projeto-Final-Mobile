@@ -9,6 +9,7 @@ import {
   SafeAreaView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import * as Animatable from "react-native-animatable";
 
 const Header = () => {
   return (
@@ -69,9 +70,13 @@ export default function App() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-        <View style={styles.container}>
+        <Animatable.View animation="fadeInRight" style={styles.container}>
           <Header />
-          <View style={styles.content}>
+          <Animatable.View
+            animation="fadeInUp"
+            delay={1500}
+            style={styles.content}
+          >
             {/* Cards de música */}
             <MusicCard
               musicType="Rock"
@@ -104,8 +109,8 @@ export default function App() {
               imageSource={require("../../../assets/music/sertanejo.png")}
               onPress={() => navigateToMusicList("Sertanejo")}
             />
-          </View>
-        </View>
+          </Animatable.View>
+        </Animatable.View>
       </ScrollView>
     </SafeAreaView>
   );

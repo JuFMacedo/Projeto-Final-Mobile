@@ -9,6 +9,7 @@ import {
   Linking,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import * as Animatable from "react-native-animatable";
 
 export default function Sobre() {
   const openGitHubbernardo = () => {
@@ -33,7 +34,7 @@ export default function Sobre() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-        <View style={styles.container}>
+        <Animatable.View animation="fadeInLeft" style={styles.container}>
           <View style={styles.section}>
             <Text style={styles.sobre}>Sobre Nós</Text>
             <Text style={styles.sobrenos}>
@@ -44,9 +45,17 @@ export default function Sobre() {
               entrada para garantir dados completos.
             </Text>
           </View>
-          <View style={styles.section}>
+          <Animatable.View
+            animation="fadeInUp"
+            delay={1000}
+            style={styles.section}
+          >
             <Text style={styles.dev}>Desenvolvedores</Text>
-            <View style={styles.viewImage}>
+            <Animatable.View
+              animation="fadeInLeft"
+              delay={1500}
+              style={styles.viewImage}
+            >
               <TouchableOpacity onPress={openGitHubbernardo}>
                 <View style={styles.imageContainer}>
                   <Image
@@ -55,8 +64,12 @@ export default function Sobre() {
                   />
                 </View>
               </TouchableOpacity>
-            </View>
-            <View style={styles.viewImage}>
+            </Animatable.View>
+            <Animatable.View
+              animation="fadeInRight"
+              delay={1750}
+              style={styles.viewImage}
+            >
               <TouchableOpacity onPress={openGitHubbernardoR}>
                 <View style={styles.imageContainer}>
                   <Image
@@ -65,8 +78,12 @@ export default function Sobre() {
                   />
                 </View>
               </TouchableOpacity>
-            </View>
-            <View style={styles.viewImage}>
+            </Animatable.View>
+            <Animatable.View
+              animation="fadeInLeft"
+              delay={2000}
+              style={styles.viewImage}
+            >
               <TouchableOpacity onPress={openGitHubcaique}>
                 <View style={styles.imageContainer}>
                   <Image
@@ -75,9 +92,13 @@ export default function Sobre() {
                   />
                 </View>
               </TouchableOpacity>
-            </View>
+            </Animatable.View>
 
-            <View style={styles.viewImage}>
+            <Animatable.View
+              animation="fadeInRight"
+              delay={2250}
+              style={styles.viewImage}
+            >
               <TouchableOpacity onPress={openGitHubestevao}>
                 <View style={styles.imageContainer}>
                   <Image
@@ -86,8 +107,12 @@ export default function Sobre() {
                   />
                 </View>
               </TouchableOpacity>
-            </View>
-            <View style={styles.viewImage}>
+            </Animatable.View>
+            <Animatable.View
+              animation="fadeInLeft"
+              delay={2500}
+              style={styles.viewImage}
+            >
               <TouchableOpacity onPress={openGitHubjulia}>
                 <View style={styles.imageContainer}>
                   <Image
@@ -96,8 +121,12 @@ export default function Sobre() {
                   />
                 </View>
               </TouchableOpacity>
-            </View>
-            <View style={styles.viewImage}>
+            </Animatable.View>
+            <Animatable.View
+              animation="fadeInRight"
+              delay={2750}
+              style={styles.viewImage}
+            >
               <TouchableOpacity onPress={openGitHubmarcos}>
                 <View style={styles.imageContainer}>
                   <Image
@@ -106,9 +135,9 @@ export default function Sobre() {
                   />
                 </View>
               </TouchableOpacity>
-            </View>
-          </View>
-        </View>
+            </Animatable.View>
+          </Animatable.View>
+        </Animatable.View>
       </ScrollView>
     </SafeAreaView>
   );
