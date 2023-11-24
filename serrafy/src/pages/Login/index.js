@@ -10,6 +10,7 @@ import {
 import React, { useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import * as Animatable from "react-native-animatable";
+import useNetworkStatus from "../../components/conexão/conexão";
 
 export default function Login({ navigation }) {
   const [username, setUsername] = useState("");
@@ -17,10 +18,15 @@ export default function Login({ navigation }) {
 
   const mockUsername = "admin";
   const mockSenha = "123";
+  const isConnected = useNetworkStatus();
 
   const logar = () => {
+    if (!isConnected) {
+      alert("Você está offline, verifique sua conexão com a internet.");
+      console.log("Você está offline, verifique sua conexão com a internet.");
+    }
     // Verificar se os campos estão vazios - o trim serve para eliminar os espaços vazios antes de uma string
-    if (!username.trim() || !senha.trim()) {
+    else if (!username.trim() || !senha.trim()) {
       alert("Preencha todos os campos");
     } else if (username !== mockUsername || senha !== mockSenha) {
       // Verificar se o usuário e senha estão corretos - de acordo com os dados mockados
@@ -41,13 +47,11 @@ export default function Login({ navigation }) {
           alignItems: "center",
         }}
         resetScrollToCoords={{ x: 0, y: 0 }}
-        scrollEnabled={true}
-      >
+        scrollEnabled={true}>
         <Animatable.View
           delay={500}
           animation="fadeInDown"
-          style={styles.viewImage}
-        >
+          style={styles.viewImage}>
           <Image
             source={require("../../../assets/serrafylogo.png")}
             style={{
@@ -63,8 +67,7 @@ export default function Login({ navigation }) {
         <Animatable.Text
           delay={500}
           animation="fadeInLeft"
-          style={styles.titulo}
-        >
+          style={styles.titulo}>
           Login
         </Animatable.Text>
         <Animatable.View delay={1500} animation="fadeInUp" style={styles.main}>
