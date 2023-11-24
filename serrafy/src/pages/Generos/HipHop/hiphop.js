@@ -88,24 +88,34 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#151515",
   },
-
   cardContainer: {
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#fff",
     borderRadius: 8,
     marginBottom: 12,
-    padding: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 12,
     elevation: 2,
+    justifyContent: "space-between",
   },
   cardImage: {
     width: 100,
     height: 100,
-    borderRadius: 8,
+    borderRadius: 10,
+    resizeMode: "contain",
+    alignSelf: "center",
+    justifyContent: "center",
   },
+
   cardDetails: {
-    marginLeft: 12,
+    marginLeft: 6,
+    marginRight: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 12,
   },
+
   songName: {
     fontSize: 16,
     fontWeight: "bold",

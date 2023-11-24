@@ -34,10 +34,6 @@ const MusicCard = ({ musicType, imageSource, onPress }) => {
 export default function App() {
   const navigation = useNavigation();
 
-  // const handleButtonPress = (buttonName) => {
-  //   console.log(`Botão ${buttonName} pressionado!`);
-  // };
-
   //Colocar a página que quer que seja redirecionado
   const navigateToMusicList = (musicType) => {
     let routeName = "";
@@ -46,7 +42,7 @@ export default function App() {
       case "Rock":
         routeName = "Rock";
         break;
-      case "Eletrônica":
+      case "Eletronica":
         routeName = "Eletronica";
         break;
       case "Pop":
